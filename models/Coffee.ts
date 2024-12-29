@@ -29,6 +29,15 @@ export abstract class Coffee {
   }
 
   /**
+   * Retrieves the list of ingredients and their proportions.
+   *
+   * @returns {IngredientProportion[]} The list of ingredients and their proportions.
+   */
+  public getIngredients(): IngredientProportion[] {
+    return this.ingredients;
+  }
+
+  /**
    * Retrieves the volume of coffee in milliliters.
    *
    * @returns {number} The volume of coffee in milliliters.

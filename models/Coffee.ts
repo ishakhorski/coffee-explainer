@@ -17,7 +17,11 @@ export abstract class Coffee {
     protected name: string,
     protected ingredients: IngredientProportion[],
     protected volume: number
-  ) {}
+  ) {
+    if (!Coffee.isValidProportions(ingredients)) {
+      throw new Error("Ingredients proportions must sum up to 1.");
+    }
+  }
 
   /**
    * Retrieves the name of the coffee.
@@ -44,5 +48,24 @@ export abstract class Coffee {
    */
   public getVolume(): number {
     return this.volume;
+  }
+
+  /**
+   * Checks if the proportions of the ingredients are valid.
+   *
+   * This method ensures that the sum of the proportions of all ingredients
+   * equals 1, indicating that the proportions are correctly distributed.
+   *
+   * @returns {boolean} True if the sum of the proportions is 1, otherwise false.
+   */
+  public static isValidProportions(
+    ingredients: IngredientProportion[]
+  ): boolean {
+    return (
+      ingredients.reduce(
+        (acc, ingredient) => acc + ingredient.getProportion(),
+        0
+      ) === 1
+    );
   }
 }

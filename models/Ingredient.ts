@@ -19,4 +19,11 @@ export abstract class Ingredient {
   public getName(): string {
     return this.name;
   }
+
+  /**
+   * Retrieves the description of the ingredient.
+   *
+   * @returns {string} The description of the ingredient.
+   */
+  public abstract getDescription(): string;
 }

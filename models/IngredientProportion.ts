@@ -42,6 +42,6 @@ export class IngredientProportion {
    * @returns `true` if the proportion is valid, `false` otherwise.
    */
   public static isValidProportion(proportion: number): boolean {
-    return proportion < 0 || proportion > 1;
+    return proportion > 0 && proportion <= 1;
   }
 }
